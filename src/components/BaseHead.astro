@@ -2,6 +2,8 @@
 import '@/styles/global.css';
 import { SITE } from '@/utils/site';
 import { ClientRouter } from 'astro:transitions';
+import { Font } from "astro:assets";
+
 
 interface Props {
   title: string;
@@ -51,5 +53,13 @@ const { title, description, image = '/og.png' } = Astro.props;
   title={SITE.TITLE}
   href={new URL('rss.xml', Astro.site)}
 />
+
+<!-- Fonts -->
+<Font cssVariable="--font-manrope" preload />
+<Font cssVariable="--font-literata" preload />
+<Font cssVariable="--font-novamono" preload />
+
+<!-- Client Router -->
+<ClientRouter />
 
 <ClientRouter />
