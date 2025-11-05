@@ -1,5 +1,5 @@
-import type { Loader, LoaderContext } from 'astro/loaders';
-import { z } from 'astro:content';
+import type { Loader, LoaderContext } from "astro/loaders";
+import { postSchema } from "@/lib/schemas";
 
 // Define any options that the loader needs
 export function marbleLoader(options: {
@@ -11,7 +11,7 @@ export function marbleLoader(options: {
   const apiUrl = new URL(options.url);
   // Return a loader object
   return {
-    name: 'marble-client',
+    name: "marble-client",
     // Called when updating the collection.
     load: async (context: LoaderContext): Promise<void> => {
       // Load data and update the store
@@ -21,32 +21,6 @@ export function marbleLoader(options: {
     },
     // Optionally, define the schema of an entry.
     // It will be overridden by user-defined schema.
-    schema: async () =>
-      z.object({
-        id: z.string(),
-        slug: z.string(),
-        title: z.string(),
-        content: z.string(),
-        description: z.string(),
-        coverImage: z.string().url(),
-        publishedAt: z.string().date(),
-        author: z.object({
-          id: z.string(),
-          name: z.string(),
-          image: z.string().url(),
-        }),
-        category: z.object({
-          id: z.string(),
-          name: z.string(),
-          slug: z.string(),
-        }),
-        tags: z.array(
-          z.object({
-            id: z.string(),
-            name: z.string(),
-            slug: z.string(),
-          })
-        ),
-      }),
+    schema: postSchema,
   };
 }

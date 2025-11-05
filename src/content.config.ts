@@ -1,6 +1,6 @@
 import { defineCollection } from "astro:content";
-import { fetchCategories, fetchPosts } from "@/lib/queries";
-import { categorySchema, postSchema } from "@/lib/schemas";
+import { fetchTags, fetchPosts } from "@/lib/queries";
+import { tagSchema, postSchema } from "@/lib/schemas";
 
 const posts = defineCollection({
   loader: async () => {
@@ -14,19 +14,19 @@ const posts = defineCollection({
   schema: postSchema,
 });
 
-const categories = defineCollection({
+const tags = defineCollection({
   loader: async () => {
-    const response = await fetchCategories();
+    const response = await fetchTags();
 
-    return response.categories.map((category) => ({
-      ...category,
-      id: category.slug,
+    return response.tags.map((tag) => ({
+      ...tag,
+      id: tag.slug,
     }));
   },
-  schema: categorySchema,
+  schema: tagSchema,
 });
 
 export const collections = {
   posts,
-  categories,
+  tags,
 };

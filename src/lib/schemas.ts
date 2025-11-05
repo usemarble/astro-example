@@ -9,7 +9,7 @@ export const paginationSchema = z.object({
   totalItems: z.number(),
 });
 
-// Main Post schema for single post retrieval (full data)
+// Main Post schema for single post retrieval
 export const postSchema = z.object({
   id: z.string(),
   slug: z.string(),
@@ -92,6 +92,17 @@ export const categoryPostSchema = z.object({
   }),
 });
 export type CategoryPost = z.infer<typeof categoryPostSchema>;
+
+export const tagSchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  slug: z.string(),
+  description: z.string().nullable(),
+  count: z.object({
+    posts: z.number(),
+  }),
+});
+export type Tag = z.infer<typeof tagSchema>;
 
 export const categorySchema = z.object({
   id: z.string(),

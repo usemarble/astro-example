@@ -2,16 +2,9 @@
 import Container from '@/components/Container.astro';
 import Layout from '@/layouts/Layout.astro';
 import { SITE } from '@/utils/site';
-const key = import.meta.env.MARBLE_WORKSPACE_KEY;
-const url = import.meta.env.MARBLE_API_URL;
+import { getCollection } from 'astro:content';
 
-interface Tag {
-  id: number;
-  name: string;
-  slug: string;
-}
-
-const tags: Tag[] = await fetch(`${url}/${key}/tags`).then((res) => res.json());
+const tags = await getCollection('tags');
 ---
 
 <Layout
@@ -28,7 +21,7 @@ const tags: Tag[] = await fetch(`${url}/${key}/tags`).then((res) => res.json());
         {
           tags.map((tag) => (
             <li class='border-amber-600 border bg-amber-100 text-amber-700 rounded-md p-2 text-sm'>
-              <a href={`/tags/${tag.slug}`}>{tag.name}</a>
+              <a href={`/tags/${tag.data.slug}`}>{tag.data.name}</a>
             </li>
           ))
         }

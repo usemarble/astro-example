@@ -1,5 +1,5 @@
 import { getSecret } from "astro:env/server";
-import type { Category, Post } from "./schemas";
+import type { Tag, Post, Category } from "./schemas";
 
 const key = getSecret("MARBLE_WORKSPACE_KEY");
 const url = getSecret("MARBLE_API_URL");
@@ -18,6 +18,10 @@ type PostsResponse = {
 
 type CategoriesResponse = {
   categories: Category[];
+};
+
+type TagsResponse = {
+  tags: Tag[];
 };
 
 export async function fetchPosts(queryParams = ""): Promise<PostsResponse> {
@@ -85,5 +89,28 @@ export async function fetchCategories(
   } catch (error) {
     console.error(`Error fetching categories from ${fullUrl}:`, error);
     return { categories: [] };
+  }
+}
+
+export async function fetchTags(queryParams = ""): Promise<TagsResponse> {
+  const fullUrl = `${url}/${key}/tags${queryParams}`;
+
+  try {
+    const response = await fetch(fullUrl);
+
+    if (!response.ok) {
+      console.error(`Failed to fetch tags from ${fullUrl}:`, {
+        status: response.status,
+        statusText: response.statusText,
+        url: fullUrl,
+      });
+      return { tags: [] };
+    }
+
+    const data = await response.json();
+    return data as TagsResponse;
+  } catch (error) {
+    console.error(`Error fetching tags from ${fullUrl}:`, error);
+    return { tags: [] };
   }
 }
