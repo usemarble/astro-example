@@ -15,9 +15,11 @@ export function marbleLoader(options: {
     // Called when updating the collection.
     load: async (context: LoaderContext): Promise<void> => {
       // Load data and update the store
-      const response = await fetch(
-        `${apiUrl}/${options.collection}/${options.apiKey}`
-      );
+      const response = await fetch(`${apiUrl}/${options.collection}`, {
+        headers: {
+          Authorization: `Bearer ${options.apiKey}`,
+        },
+      });
     },
     // Optionally, define the schema of an entry.
     // It will be overridden by user-defined schema.
