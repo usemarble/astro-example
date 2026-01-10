@@ -21,8 +21,8 @@ importers:
         specifier: ^4.1.12
         version: 4.1.16(vite@6.4.1(jiti@2.6.1)(lightningcss@1.30.2)(yaml@2.7.0))
       '@usemarble/sdk':
-        specifier: ^1.0.5
-        version: 1.0.5
+        specifier: ^1.0.6
+        version: 1.0.6
       '@vercel/analytics':
         specifier: ^1.4.1
         version: 1.4.1
@@ -797,8 +797,8 @@ packages:
   '@ungap/structured-clone@1.2.1':
     resolution: {integrity: sha512-fEzPV3hSkSMltkw152tJKNARhOupqbH96MZWyRjNaYZOMIzbrTeQDG+MTc6Mr2pgzFQzFxAfmhGDNP5QK++2ZA==}
 
-  '@usemarble/sdk@1.0.5':
-    resolution: {integrity: sha512-sgS/2X9pS8F4dgGyR9KvK3QnG8DvQroE/fpuwmMX3VjLkGfPIBoEyNf24CJciMTGnFBu0JghMFjRWSVwTJtZyg==}
+  '@usemarble/sdk@1.0.6':
+    resolution: {integrity: sha512-5QCaWx3yABEwcAlp+wfSMdqDiTqpWfE4ctcQtCP7PMw51zCQAteMZilFqoNoy5CTFCkcSistQVZF/a0NeScQnQ==}
 
   '@vercel/analytics@1.4.1':
     resolution: {integrity: sha512-ekpL4ReX2TH3LnrRZTUKjHHNpNy9S1I7QmS+g/RQXoSUQ8ienzosuX7T9djZ/s8zPhBx1mpHP/Rw5875N+zQIQ==}
@@ -2825,7 +2825,7 @@ snapshots:
 
   '@ungap/structured-clone@1.2.1': {}
 
-  '@usemarble/sdk@1.0.5':
+  '@usemarble/sdk@1.0.6':
     dependencies:
       zod: 3.25.76
 
