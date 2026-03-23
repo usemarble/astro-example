@@ -21,32 +21,30 @@ export default defineConfig({
   adapter: vercel({
     webAnalytics: { enabled: true },
   }),
-  experimental: {
-    fonts: [
-      {
-        name: "Literata",
-        cssVariable: "--font-literata",
-        provider: fontProviders.fontsource(),
-        weights: [400, 500, 600, 700],
-        styles: ["normal"],
-        subsets: ["latin"],
-      },
-      {
-        name: "Manrope",
-        cssVariable: "--font-manrope",
-        provider: fontProviders.google(),
-        weights: [400, 500, 600, 700],
-        styles: ["normal"],
-        subsets: ["latin"],
-      },
-      {
-        name: "Nova Mono",
-        cssVariable: "--font-novamono",
-        provider: fontProviders.google(),
-        weights: [400, 500, 600, 700],
-        styles: ["normal"],
-        subsets: ["latin"],
-      },
-    ],
-  },
+  fonts: [
+    {
+      name: "Literata",
+      cssVariable: "--font-literata",
+      provider: fontProviders.fontsource(),
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+      subsets: ["latin"],
+    },
+    {
+      name: "Manrope",
+      cssVariable: "--font-manrope",
+      provider: fontProviders.google(),
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+      subsets: ["latin"],
+    },
+    {
+      name: "Nova Mono",
+      cssVariable: "--font-novamono",
+      provider: fontProviders.google(),
+      weights: [400, 500, 600, 700],
+      styles: ["normal"],
+      subsets: ["latin"],
+    },
+  ],
 });
