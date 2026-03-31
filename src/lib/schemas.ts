@@ -1,4 +1,4 @@
-import { z } from "astro:content";
+import { z } from "astro/zod";
 
 export const paginationSchema = z.object({
   limit: z.number(),
@@ -14,7 +14,7 @@ export const postSchema = z.object({
   id: z.string(),
   slug: z.string(),
   title: z.string(),
-  status: z.enum(["published", "draft"]),
+  status: z.enum(["published", "draft"]).optional(),
   featured: z.boolean(),
   content: z.string(),
   description: z.string(),
@@ -68,7 +68,7 @@ export const categoryPostSchema = z.object({
   id: z.string(),
   title: z.string(),
   slug: z.string(),
-  status: z.enum(["published", "draft"]),
+  status: z.enum(["published", "draft"]).optional(),
   featured: z.boolean(),
   description: z.string(),
   coverImage: z.string().url().nullable().optional(),
