@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 
 type Props = {
@@ -26,12 +25,11 @@ const formattedDate = new Date(publishedAt)
 
 <li class='flex flex-col gap-4'>
   <div class='relative group z-10 rounded-t-md min-h-[240px]'>
-    {coverImage && (  
-      <Image
+    {coverImage && (
+      <img
         src={coverImage}
         alt={title}
-        inferSize
-        loading="eager"
+        loading='eager'
         class='object-cover size-full h-[260px]'
       />
     )}

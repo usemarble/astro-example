@@ -60,11 +60,10 @@ const formattedDate = new Date(entry.data.publishedAt).toLocaleDateString(
       </div>
       <div class='relative'>
         {entry.data.coverImage && (
-          <Image
+          <img
             src={entry.data.coverImage}
             alt={entry.data.title}
-            inferSize
-            loading="eager"
+            loading='eager'
             class='object-cover size-full max-sm:max-h-[360px]'
           />
         )}

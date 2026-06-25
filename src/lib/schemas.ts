@@ -54,7 +54,8 @@ export const postSchema = z.object({
       author: z.string(),
       url: z.string().url(),
     })
-    .nullable(),
+    .nullable()
+    .optional(),
 });
 export type Post = z.infer<typeof postSchema>;
 
